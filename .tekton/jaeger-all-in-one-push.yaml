@@ -34,10 +34,9 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: prefetch-input
-    # TODO add yarn, once cachi2 supports yarn1 or Jaeger migrates to yarn3
-    value: '[{"type": "gomod", "path": "./jaeger"}]'
+    value: '[{"type": "gomod", "path": "./jaeger"}, {"type": "npm", "path": "./jaeger-ui"}]'
   - name: hermetic
-    value: "false"
+    value: "true"
   - name: output-image
     value: quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-all-in-one:{{revision}}
   - name: dockerfile
