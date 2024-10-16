@@ -25,7 +25,10 @@ Open PR `Release - update bundle version` and update [patch_csv.yaml](./bundle-p
 Once the PR is merged and bundle is built. Open another PR `Release - update catalog` with:
 * Updated [catalog template](./catalog/catalog-template.json) with the new bundle (get the bundle pullspec from [Konflux](https://console.redhat.com/application-pipeline/workspaces/rhosdt/applications/jaeger/components/jaeger-bundle)):
    ```bash
+    opm alpha render-template basic --output yaml --migrate-level bundle-object-to-csv-metadata catalog/catalog-template.yaml > catalog/jaeger-product-4.17/catalog.yaml && \
     opm alpha render-template basic --output yaml catalog/catalog-template.yaml > catalog/jaeger-product/catalog.yaml && \
+    sed -i 's#quay.io/redhat-user-workloads/rhosdt-tenant/otel/jaeger-bundle#registry.redhat.io/rhosdt/jaeger-operator-bundle#g' catalog/jaeger-product-4.17/catalog.yaml  && \
     sed -i 's#quay.io/redhat-user-workloads/rhosdt-tenant/otel/jaeger-bundle#registry.redhat.io/rhosdt/jaeger-operator-bundle#g' catalog/jaeger-product/catalog.yaml  && \
-    opm validate catalog/jaeger-product/
+    opm validate catalog/jaeger-product && \
+    opm validate catalog/jaeger-product-4.17
    ```
