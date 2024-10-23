@@ -34,18 +34,19 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: prefetch-input
-    # TODO add yarn, once cachi2 supports yarn1 or Jaeger migrates to yarn3
-    value: '[{"type": "gomod", "path": "./jaeger"}]'
+    value: '[{"type": "gomod", "path": "./jaeger"}, {"type": "npm", "path": "./jaeger-ui"}]'
   - name: hermetic
-    value: "false"
+    value: "true"
   - name: output-image
     value: quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-query:{{revision}}
   - name: dockerfile
     value: Dockerfile.query
   - name: path-context
     value: .
+  # skip building source image because of https://issues.redhat.com/browse/KFLUXBUGS-1508
+  # see https://redhat-internal.slack.com/archives/C04PZ7H0VA8/p1729508558152359
   - name: build-source-image
-    value: "true"
+    value: "false"
   - name: build-platforms
     value:
       - localhost
