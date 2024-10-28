@@ -3,7 +3,7 @@
 set -e
 
 # The pullspec should be image index, check if all architectures are there with: skopeo inspect --raw docker://$IMG | jq
-export JAEGER_COLLECTOR_IMAGE_PULLSPEC="quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-collector@sha256:7e868a070d0f2039db8445251c74594894af07b50c2b41f54c9d913543e9ada8"
+export JAEGER_COLLECTOR_IMAGE_PULLSPEC="quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-collector@sha256:36ba816aca295988bbb73a2a301181d6ac1bcd7e52cce46437eb87da18665ff6"
 # Separate due to merge conflicts
 export JAEGER_AGENT_IMAGE_PULLSPEC="quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-agent@sha256:e93f09abdb111f162b9faad393b509b5492ec27634b2ac03baad3d59f0f6092f"
 # Separate due to merge conflicts
