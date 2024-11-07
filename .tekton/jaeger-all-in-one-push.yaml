@@ -12,7 +12,8 @@ metadata:
       ".tekton/jaeger-all-in-one-pull-request.yaml".pathChanged() ||
       ".tekton/jaeger-all-in-one-push.yaml".pathChanged() ||
       "Dockerfile.allinone".pathChanged() ||
-      "jaeger".pathChanged())
+      "jaeger".pathChanged() ||
+      "jaeger-ui".pathChanged())
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: jaeger
