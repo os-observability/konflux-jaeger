@@ -12,7 +12,8 @@ metadata:
       ".tekton/jaeger-query-pull-request.yaml".pathChanged() ||
       ".tekton/jaeger-query-push.yaml".pathChanged() ||
       "Dockerfile.query".pathChanged() ||
-      "jaeger".pathChanged())
+      "jaeger".pathChanged() ||
+      "jaeger-ui".pathChanged())
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: jaeger
