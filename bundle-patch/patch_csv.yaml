@@ -15,10 +15,10 @@ metadata:
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
     features.operators.openshift.io/csi: "false"
-    olm.skipRange: '>=1.13.0 <1.62.0'
-  name: jaeger-operator.v1.62.0
+    olm.skipRange: '>=1.13.0 <1.62.0-1'
+  name: jaeger-operator.v1.62.0-1
 spec:
-  version: 1.62.0
+  version: 1.62.0-1
   replaces: jaeger-operator.v1.57.0-54.1730817422
   description: |-
     Red Hat OpenShift distributed tracing platform based on Jaeger. Jaeger is project inspired by [Dapper](https://research.google.com/pubs/pub36356.html) and [OpenZipkin](http://zipkin.io/). It is a distributed tracing system released as open source by Uber Technologies. It is used for monitoring and troubleshooting microservices-based distributed systems.
