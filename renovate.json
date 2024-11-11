@@ -11,6 +11,11 @@
       "matchDatasources": ["docker"],
       "matchPackageNames": ["quay.io/redhat-user-workloads/rhosdt-tenant/*/*"],
       "groupName": "operand images"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["registry.redhat.io/openshift4/ose-operator-registry", "registry.redhat.io/openshift4/ose-operator-registry-rhel9"],
+      "groupName": "catalog base images"
     }
   ]
 }
