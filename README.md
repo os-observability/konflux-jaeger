@@ -19,7 +19,7 @@ Create a PR `Release - update upstream sources x.y`
 1. Update all base images
 1. Update rpm lockfiles
    ```bash
-   rpm-lockfile-prototype --arch x86_64 --arch aarch64 --arch s390x --arch ppc64le -f Dockerfile.collector rpms.in.yaml --outfile rpms.lock.yaml
+   rpm-lockfile-prototype --arch x86_64 --arch aarch64 --arch s390x --arch ppc64le -f Dockerfile.operator rpms.in.yaml --outfile rpms.lock.yaml
    cd bundle-patch; rpm-lockfile-prototype --arch x86_64 rpms.in.yaml --outfile rpms.lock.yaml
    ```
 1. Update git submodules with upstream versions
@@ -67,5 +67,5 @@ operator-sdk cleanup jaeger-product
 ```bash
 podman cp $(podman create --name tc registry.redhat.io/redhat/redhat-operator-index:v4.17):/configs/jaeger-product jaeger-product-4.17 && podman rm tc
 opm migrate jaeger-product-4.17 jaeger-product-4.17-migrated
-opm alpha convert-template basic --output yaml ./jaeger-product-4.17-migrated/jaeger-product/catalog.json > jaeger-product-4.17-migrated/jaeger-product/catalog-template.yaml
+opm alpha convert-template basic --output yaml ./jaeger-product-4.17-migrated/jaeger-product/catalog.json > catalog/catalog-template.yaml
 ```
