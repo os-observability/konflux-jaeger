@@ -9,7 +9,7 @@
   "packageRules": [
     {
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["/^quay.io/redhat-user-workloads/rhosdt-tenant//"],
+      "matchPackageNames": ["quay.io/redhat-user-workloads/rhosdt-tenant/*/*"],
       "groupName": "operand images"
     }
   ]
