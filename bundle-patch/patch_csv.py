@@ -4,6 +4,7 @@ from sys import exit as sys_exit
 from datetime import datetime
 from ruamel.yaml import YAML
 yaml = YAML()
+yaml.preserve_quotes = True
 
 def load_manifest(pathn):
    if not pathn.endswith(".yaml"):
@@ -54,7 +55,7 @@ if os.getenv('S390X_BUILT'):
 	upstream_csv['metadata']['labels']['operatorframework.io/arch.s390x'] = 'supported'
 upstream_csv['metadata']['labels']['operatorframework.io/os.linux'] = 'supported'
 upstream_csv['metadata']['annotations']['createdAt'] = datetime_time.strftime('%d %b %Y, %H:%M')
-upstream_csv['metadata']['annotations']['repository'] = 'https://github.com/os-bservability/konflux-jaeger'
+upstream_csv['metadata']['annotations']['repository'] = 'https://github.com/os-observability/konflux-jaeger'
 upstream_csv['metadata']['annotations']['containerImage'] = os.getenv('JAEGER_OPERATOR_IMAGE_PULLSPEC', '')
 
 upstream_csv['spec']['relatedImages'] = [
@@ -90,7 +91,7 @@ with open('./patch_csv.yaml') as pf:
     # volumes
     if not upstream_csv['spec']['install']['spec']['deployments'][0]['spec']['template']['spec'].get('volumes'):
         upstream_csv['spec']['install']['spec']['deployments'][0]['spec']['template']['spec']['volumes']=[]
-    upstream_csv['spec']['install']['spec']['deployments'][0]['spec']['template']['spec']['volumes'].extend(patch['spec']['install']['spec']['deployments'][0]['spec']['template']['spec']['extra_volumes'])
+    upstream_csv['spec']['install']['spec']['deployments'][0]['spec']['template']['spec']['volumes'].extend(patch['spec']['install']['spec']['deployments'][0]['spec']['template']['spec'].get('extra_volumes', []))
 
     upstream_containers = upstream_csv['spec']['install']['spec']['deployments'][0]['spec']['template']['spec']['containers']
     for container in             patch['spec']['install']['spec']['deployments'][0]['spec']['template']['spec']['containers']:
@@ -125,7 +126,7 @@ with open('./patch_csv.yaml') as pf:
         # volume mounts
         if container.get('extra_volumeMounts') is not None:
             if  upstream_container.get('volumeMounts') is not None:
-                upstream_container['volumeMounts'] = upstream_container.get('volumeMounts') + info.get('extra_volumeMounts')
+                upstream_container['volumeMounts'] = upstream_container.get('volumeMounts') + container.get('extra_volumeMounts')
             else:
                 upstream_container['volumeMounts'] = container.get('extra_volumeMounts')
 
