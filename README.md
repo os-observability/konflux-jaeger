@@ -58,7 +58,8 @@ Images can be found at https://quay.io/organization/redhat-user-workloads (searc
 
 ```bash
 operator-sdk olm install
-operator-sdk run bundle quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle-quay@sha256:a09e1fa7c42b3f89b8a74e83d9d8c5b501ef9cd356612d6e146646df1f3d5800
+# get latest image pullspec from https://console.redhat.com/application-pipeline/workspaces/rhosdt/applications/jaeger/components/jaeger-bundle-quay
+operator-sdk run bundle quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle-quay@sha256:10b2bfbb9bd4b0dd6ae5093d95f9766862c6148a5f88139ccb99dc413d4a32c1
 operator-sdk cleanup jaeger-product
 ```
 
