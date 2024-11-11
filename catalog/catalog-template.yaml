@@ -32,8 +32,12 @@ entries:
     replaces: jaeger-operator.v1.53.0-3
     skipRange: '>=1.13.0 <1.53.0-4'
   - name: jaeger-operator.v1.57.0-10
+    skipRange: '>=1.13.0 <1.57.0-10'
+  - name: jaeger-operator.v1.57.0-10-0.1730817420.p
     replaces: jaeger-operator.v1.57.0-7
     skipRange: '>=1.13.0 <1.57.0-10'
+    skips:
+    - jaeger-operator.v1.57.0-10
   - name: jaeger-operator.v1.57.0-5
     replaces: jaeger-operator.v1.53.0-4
     skipRange: '>=1.13.0 <1.57.0-5'
@@ -43,6 +47,9 @@ entries:
   - name: jaeger-operator.v1.57.0-7
     replaces: jaeger-operator.v1.57.0-6
     skipRange: '>=1.13.0 <1.57.0-7'
+  - name: jaeger-operator.v1.62.0-1
+    replaces: jaeger-operator.v1.57.0-10-0.1730817420.p
+    skipRange: '>=1.13.0 <1.62.0-1'
   name: stable
   package: jaeger-product
   schema: olm.channel
@@ -64,11 +71,14 @@ entries:
   schema: olm.bundle
 - image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:b9e460b314337c436eac4327b3740f6ce05690e091afb2d057025752b971bc62
   schema: olm.bundle
+- image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:0a3d8d38e9d059477b2f981e18bbdeaf5e025f47c7ef912014ed7abe6ffaf8e1
+  schema: olm.bundle
 - image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:e6bdfda1fc7a64452e02a22225849deae558c0a965880ff17d999532453e5254
   schema: olm.bundle
 - image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:3048dd6953414dfbcaba2934785d2e5774acc9507f34ac3509a1a410b0c07f76
   schema: olm.bundle
 - image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:603801bd24918953aea7f8a81bd61583eaf6f04b0e350ff7acda87bc92aab8f7
   schema: olm.bundle
+- image: quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle@sha256:18f95e9503ae71fa04091fcf076dd0f24728baef52cacbae1762cbe2a46bf7b5
+  schema: olm.bundle
 schema: olm.template.basic
-
