@@ -14,16 +14,18 @@ podman build -t docker.io/user/jaeger-operator:$(date +%s) -f Dockerfile.operato
 ```
 
 ## Release
+### Application
+Update all base images (merge renovatebot PRs).
 
-Create a PR `Release - update upstream sources x.y`
-1. Update all base images
+Create a PR `Release - update upstream sources x.y`:
+1. Update git submodules with upstream versions
 1. Update rpm lockfiles
    ```bash
    rpm-lockfile-prototype --arch x86_64 --arch aarch64 --arch s390x --arch ppc64le -f Dockerfile.operator rpms.in.yaml --outfile rpms.lock.yaml
    cd bundle-patch; rpm-lockfile-prototype --arch x86_64 rpms.in.yaml --outfile rpms.lock.yaml
    ```
-1. Update git submodules with upstream versions
 
+### Bundle
 Wait for renovatebot to create PRs to update the hash in the `bundle-patch/update_bundle.sh` file, and merge all of them.
 
 Create a PR `Release - update bundle version x.y` and update [patch_csv.yaml](./bundle-patch/patch_csv.yaml) by submitting a PR with follow-up changes:
@@ -39,6 +41,7 @@ Create a PR `Release - update bundle version x.y` and update [patch_csv.yaml](./
    rm jaeger-operator.clusterserviceversion.yaml
    ```
 
+### Catalog
 Once the PR is merged and bundle is built, create another PR `Release - update catalog x.y` with:
 * Updated [catalog template](./catalog/catalog-template.yaml) with the new bundle (get the bundle pullspec from [Konflux](https://console.redhat.com/application-pipeline/workspaces/rhosdt/applications/jaeger/components/jaeger-bundle)):
    ```bash
