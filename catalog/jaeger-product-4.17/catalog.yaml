@@ -2496,7 +2496,7 @@ relatedImages:
   name: jaeger-operator
 schema: olm.bundle
 ---
-image: quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle@sha256:18f95e9503ae71fa04091fcf076dd0f24728baef52cacbae1762cbe2a46bf7b5
+image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:18f95e9503ae71fa04091fcf076dd0f24728baef52cacbae1762cbe2a46bf7b5
 name: jaeger-operator.v1.62.0-1
 package: jaeger-product
 properties:
@@ -2664,7 +2664,7 @@ properties:
     provider:
       name: Red Hat
 relatedImages:
-- image: quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle@sha256:18f95e9503ae71fa04091fcf076dd0f24728baef52cacbae1762cbe2a46bf7b5
+- image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:18f95e9503ae71fa04091fcf076dd0f24728baef52cacbae1762cbe2a46bf7b5
   name: ""
 - image: registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:8204d45506297578c8e41bcc61135da0c7ca244ccbd1b39070684dfeb4c2f26c
   name: ose-rbac-proxy
