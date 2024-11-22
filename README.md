@@ -40,12 +40,12 @@ Create a PR `Release - update bundle version x.y` and update [patch_csv.yaml](./
 Once the PR is merged and bundle is built, create another PR `Release - update catalog x.y` with:
 * Updated [catalog template](./catalog/catalog-template.yaml) with the new bundle (get the bundle pullspec from [Konflux](https://console.redhat.com/application-pipeline/workspaces/rhosdt/applications/jaeger/components/jaeger-bundle)):
    ```bash
-    opm alpha render-template basic --output yaml --migrate-level bundle-object-to-csv-metadata catalog/catalog-template.yaml > catalog/jaeger-product-4.17/catalog.yaml && \
-    opm alpha render-template basic --output yaml catalog/catalog-template.yaml > catalog/jaeger-product/catalog.yaml && \
-    sed -i 's#quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle#registry.redhat.io/rhosdt/jaeger-operator-bundle#g' catalog/jaeger-product-4.17/catalog.yaml  && \
-    sed -i 's#quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle#registry.redhat.io/rhosdt/jaeger-operator-bundle#g' catalog/jaeger-product/catalog.yaml  && \
-    opm validate catalog/jaeger-product && \
-    opm validate catalog/jaeger-product-4.17
+   opm alpha render-template basic --output yaml catalog/catalog-template.yaml > catalog/jaeger-product/catalog.yaml && \
+   opm alpha render-template basic --output yaml --migrate-level bundle-object-to-csv-metadata catalog/catalog-template.yaml > catalog/jaeger-product-4.17/catalog.yaml && \
+   sed -i 's#quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle#registry.redhat.io/rhosdt/jaeger-operator-bundle#g' catalog/jaeger-product/catalog.yaml  && \
+   sed -i 's#quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle#registry.redhat.io/rhosdt/jaeger-operator-bundle#g' catalog/jaeger-product-4.17/catalog.yaml  && \
+   opm validate catalog/jaeger-product && \
+   opm validate catalog/jaeger-product-4.17
    ```
 
 ## Test locally
@@ -55,9 +55,10 @@ Images can be found at https://quay.io/organization/redhat-user-workloads (searc
 ### Deploy bundle
 
 ```bash
+kubectl create namespace openshift-distributed-tracing
 operator-sdk olm install
 # get latest image pullspec from https://console.redhat.com/application-pipeline/workspaces/rhosdt/applications/jaeger/components/jaeger-bundle-quay
-operator-sdk run bundle quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle-quay@sha256:10b2bfbb9bd4b0dd6ae5093d95f9766862c6148a5f88139ccb99dc413d4a32c1
+operator-sdk run bundle -n openshift-distributed-tracing quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle-quay@sha256:10b2bfbb9bd4b0dd6ae5093d95f9766862c6148a5f88139ccb99dc413d4a32c1
 operator-sdk cleanup jaeger-product
 ```
 
