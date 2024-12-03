@@ -38,7 +38,7 @@ Create a PR `Release - update bundle version x.y` and update [patch_csv.yaml](./
 
 ### Catalog
 Once the PR is merged and bundle is built, create another PR `Release - update catalog x.y` with:
-* Updated [catalog template](./catalog/catalog-template.yaml) with the new bundle (get the bundle pullspec from [Konflux](https://console.redhat.com/application-pipeline/workspaces/rhosdt/applications/jaeger/components/jaeger-bundle)):
+* Updated [catalog template](./catalog/catalog-template.yaml) with the new bundle (get the bundle pullspec from `kubectl get component jaeger-bundle -o yaml`):
    ```bash
    opm alpha render-template basic --output yaml catalog/catalog-template.yaml > catalog/jaeger-product/catalog.yaml && \
    opm alpha render-template basic --output yaml --migrate-level bundle-object-to-csv-metadata catalog/catalog-template.yaml > catalog/jaeger-product-4.17/catalog.yaml && \
@@ -54,10 +54,9 @@ Images can be found at https://quay.io/organization/redhat-user-workloads (searc
 
 ### Deploy bundle
 
+get latest pullspec from `kubectl get component jaeger-bundle-quay -o yaml`, then run:
 ```bash
 kubectl create namespace openshift-distributed-tracing
-operator-sdk olm install
-# get latest image pullspec from https://console.redhat.com/application-pipeline/workspaces/rhosdt/applications/jaeger/components/jaeger-bundle-quay
 operator-sdk run bundle -n openshift-distributed-tracing quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle-quay@sha256:10b2bfbb9bd4b0dd6ae5093d95f9766862c6148a5f88139ccb99dc413d4a32c1
 operator-sdk cleanup jaeger-product
 ```
