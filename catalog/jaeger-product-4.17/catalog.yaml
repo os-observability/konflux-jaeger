@@ -2496,7 +2496,7 @@ relatedImages:
   name: jaeger-operator
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:7984d473ec5aec6c7a0229724fd14dea52351868af5378e6ded34a8cc2ae0da8
+image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:e65dce4728a53af4e696d09b05b60a731ecb8cdba19332deb16c291f61adcdb4
 name: jaeger-operator.v1.62.0-1
 package: jaeger-product
 properties:
@@ -2528,8 +2528,8 @@ properties:
       capabilities: Deep Insights
       categories: Logging & Tracing
       certified: "false"
-      containerImage: registry.redhat.io/rhosdt/jaeger-rhel8-operator@sha256:3270e48142681163e0ee74ea06b41594d0771fbf3885129dce7610f84d5f2ecc
-      createdAt: 22 Nov 2024, 10:13
+      containerImage: registry.redhat.io/rhosdt/jaeger-rhel8-operator@sha256:4c440eb87d37fa38648782c52faa9de1ef10381dbfafa943159f5818386ad8b5
+      createdAt: 03 Dec 2024, 14:01
       description: Provides tracing, monitoring and troubleshooting for microservices-based
         distributed systems
       features.operators.openshift.io/cnf: "false"
@@ -2664,7 +2664,7 @@ properties:
     provider:
       name: Red Hat
 relatedImages:
-- image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:7984d473ec5aec6c7a0229724fd14dea52351868af5378e6ded34a8cc2ae0da8
+- image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:e65dce4728a53af4e696d09b05b60a731ecb8cdba19332deb16c291f61adcdb4
   name: ""
 - image: registry.redhat.io/openshift4/ose-kube-rbac-proxy:latest@sha256:7efeeb8b29872a6f0271f651d7ae02c91daea16d853c50e374c310f044d8c76c
   name: ose-rbac-proxy
@@ -2684,6 +2684,6 @@ relatedImages:
   name: jaeger-ingester
 - image: registry.redhat.io/rhosdt/jaeger-query-rhel8@sha256:e84707f4a3fb28e87b76ebc25a68dea14294d19a745300c62d80838dae5d5d59
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/jaeger-rhel8-operator@sha256:3270e48142681163e0ee74ea06b41594d0771fbf3885129dce7610f84d5f2ecc
+- image: registry.redhat.io/rhosdt/jaeger-rhel8-operator@sha256:4c440eb87d37fa38648782c52faa9de1ef10381dbfafa943159f5818386ad8b5
   name: jaeger-operator
 schema: olm.bundle

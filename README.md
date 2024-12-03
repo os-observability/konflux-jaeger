@@ -57,8 +57,8 @@ Images can be found at https://quay.io/organization/redhat-user-workloads (searc
 get latest pullspec from `kubectl get component jaeger-bundle-quay -o yaml`, then run:
 ```bash
 kubectl create namespace openshift-distributed-tracing
-operator-sdk run bundle -n openshift-distributed-tracing quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle-quay@sha256:10b2bfbb9bd4b0dd6ae5093d95f9766862c6148a5f88139ccb99dc413d4a32c1
-operator-sdk cleanup jaeger-product
+operator-sdk run bundle -n openshift-distributed-tracing quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle-quay@sha256:72e1bf7c44b004980a4cf75ba480c50964e36dbc8659d2c436c64999a14d2aa4
+operator-sdk cleanup -n openshift-distributed-tracing jaeger-product
 ```
 
 ### Extract file based catalog from OpenShift index
