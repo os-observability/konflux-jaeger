@@ -57,7 +57,7 @@ Images can be found at https://quay.io/organization/redhat-user-workloads (searc
 get latest pullspec from `kubectl get component jaeger-bundle-quay -o yaml`, then run:
 ```bash
 kubectl create namespace openshift-distributed-tracing
-operator-sdk run bundle -n openshift-distributed-tracing quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle-quay@sha256:72e1bf7c44b004980a4cf75ba480c50964e36dbc8659d2c436c64999a14d2aa4
+operator-sdk run bundle -n openshift-distributed-tracing quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle-quay@sha256:509300864348265febf30328f9f380d1a5340bb5a5d466c51bf9951e6767c3ea
 operator-sdk cleanup -n openshift-distributed-tracing jaeger-product
 ```
 
