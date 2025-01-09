@@ -21,7 +21,7 @@ index 810bcabc..59f74c2d 100644
 +                message={
 +                  <span style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
 +                    Red Hat OpenShift distributed tracing platform (Jaeger) is deprecated and will be removed in a future release.
-+                    Please migrate to the <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/distributed_tracing/distributed-tracing-platform-tempo">Tempo Operator</a>.
++                    Migrate to the <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/distributed_tracing/distributed-tracing-platform-tempo">Tempo Operator</a>.
 +                  </span>
 +                }
 +              />
