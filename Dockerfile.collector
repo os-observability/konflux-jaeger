@@ -12,7 +12,7 @@ WORKDIR /opt/app-root/src/jaeger
 RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variable assignment"; exit 1; else export "$1"; fi } && \
     exportOrFail VERSION_PKG="github.com/jaegertracing/jaeger/pkg/version" && \
     exportOrFail VERSION_DATE=`date -u +'%Y-%m-%dT%H:%M:%SZ'` && \
-    exportOrFail GIT_LATEST_TAG=`git describe --abbrev=0 --tags --always` && \
+    exportOrFail GIT_LATEST_TAG=`git describe --abbrev=0 --tags` && \
     exportOrFail GIT_COMMIT_SHA=`git rev-parse HEAD` && \
     go build -C ./cmd/collector -mod=mod -o ./jaeger -trimpath -ldflags "-s -w -X ${VERSION_PKG}.commitSHA=${GIT_COMMIT_SHA} -X ${VERSION_PKG}.latestVersion=${GIT_LATEST_TAG} -X ${VERSION_PKG}.date=${VERSION_DATE}"
 
