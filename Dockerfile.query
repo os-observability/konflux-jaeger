@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/nodejs-22:latest@sha256:1260d0a794193dc5939433ccab1d0cdfb5063f5be697be5c8d3b8f0fec243aac as builder-ui
+FROM registry.redhat.io/ubi9/nodejs-22:latest@sha256:f32c5fecf7bc92c6d236becd4e38a2a35a8c6cb2837c8a79b24fa1e0d5807c67 as builder-ui
 
 WORKDIR /opt/app-root/src
 USER root
@@ -37,7 +37,7 @@ RUN rm -rf ./cmd/query/app/ui/actual && mkdir ./cmd/query/app/ui/actual && cp -r
     exportOrFail GIT_COMMIT_SHA=`git rev-parse HEAD` && \
     go build -C ./cmd/query -mod=mod -tags ui -o ./jaeger -trimpath -ldflags "-s -w -X ${VERSION_PKG}.commitSHA=${GIT_COMMIT_SHA} -X ${VERSION_PKG}.latestVersion=${GIT_LATEST_TAG} -X ${VERSION_PKG}.date=${VERSION_DATE}"
 
-FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:c12e67af6a7e15113d76bc72f10bef2045c026c71ec8b7124c8a075458188a83
+FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:cf095e5668919ba1b4ace3888107684ad9d587b1830d3eb56973e6a54f456e67
 WORKDIR /
 
 RUN mkdir /licenses
