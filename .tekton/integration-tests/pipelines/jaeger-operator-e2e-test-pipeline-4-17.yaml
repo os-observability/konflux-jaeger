@@ -93,6 +93,35 @@ spec:
                 value: "m5.2xlarge"
               - name: timeout
                 value: "40m"
+              - name: imageContentSources
+                value: |
+                  - source: registry.redhat.io/rhosdt/jaeger-rhel8-operator
+                    mirrors:
+                      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-operator
+                  - source: registry.redhat.io/rhosdt/jaeger-collector-rhel8
+                    mirrors:
+                      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-collector
+                  - source: registry.redhat.io/rhosdt/jaeger-query-rhel8
+                    mirrors:
+                      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-query
+                  - source: registry.redhat.io/rhosdt/jaeger-agent-rhel8
+                    mirrors:
+                      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-agent
+                  - source: registry.redhat.io/rhosdt/jaeger-ingester-rhel8
+                    mirrors:
+                      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-ingester
+                  - source: registry.redhat.io/rhosdt/jaeger-all-in-one-rhel8
+                    mirrors:
+                      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-all-in-one
+                  - source: registry.redhat.io/rhosdt/jaeger-es-index-cleaner-rhel8
+                    mirrors:
+                      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-es-index-cleaner
+                  - source: registry.redhat.io/rhosdt/jaeger-es-rollover-rhel8
+                    mirrors:
+                      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-es-rollover
+                  - source: registry.redhat.io/rhosdt/jaeger-operator-bundle
+                    mirrors:
+                      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle
     - name: jaeger-install
       description: Task to install bundle onto ephemeral namespace
       runAfter:
@@ -158,11 +187,6 @@ spec:
               echo "Create namespace to install Jaeger Operator"
               oc create namespace $(params.namespace)
               oc label namespaces $(params.namespace) openshift.io/cluster-monitoring=true --overwrite=true
-
-              echo "Apply ImageDigestMirrorSet for Jaeger FBC"
-              export IMAGE_DIGEST_MIRROR_SET=https://raw.githubusercontent.com/os-observability/konflux-jaeger/refs/heads/main/.tekton/integration-tests/resources/imagedigestmirrorset.yaml
-              curl -Lo /tmp/imagedigestmirrorset.yaml "$IMAGE_DIGEST_MIRROR_SET"
-              oc apply -f /tmp/imagedigestmirrorset.yaml
 
               echo "Get the bundle image"
               echo ${KONFLUX_COMPONENT_NAME}
