@@ -65,8 +65,8 @@ upstream_csv['spec']['relatedImages'] = [
     {'name': 'jaeger-agent', 'image': os.getenv('JAEGER_AGENT_IMAGE_PULLSPEC')},
     {'name': 'jaeger-ingester', 'image': os.getenv('JAEGER_INGESTER_IMAGE_PULLSPEC')},
     {'name': 'jaeger-all-in-one', 'image': os.getenv('JAEGER_ALL_IN_ONE_IMAGE_PULLSPEC')},
-    {'name': 'jaeger-es-index-cleaner', 'image': os.getenv('JAEGER_INDEX_CLEANER_IMAGE_PULLSPEC')},
-    {'name': 'jaeger-es-rollover', 'image': os.getenv('JAEGER_ROLLOVER_IMAGE_PULLSPEC')},
+    {'name': 'jaeger-es-index-cleaner', 'image': os.getenv('JAEGER_ES_INDEX_CLEANER_IMAGE_PULLSPEC')},
+    {'name': 'jaeger-es-rollover', 'image': os.getenv('JAEGER_ES_ROLLOVER_IMAGE_PULLSPEC')},
     {'name': 'ose-rbac-proxy', 'image': os.getenv('OSE_KUBE_RBAC_PROXY_PULLSPEC')},
     {'name': 'ose-oauth-proxy', 'image': os.getenv('OSE_OAUTH_PROXY_PULLSPEC')}]
 
