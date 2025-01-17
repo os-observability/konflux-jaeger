@@ -94,9 +94,9 @@ spec:
                       - name: RELATED_IMAGE_JAEGER_ALL_IN_ONE
                         value: jaeger-allinone-container-pullspec
                       - name: RELATED_IMAGE_JAEGER_ES_INDEX_CLEANER
-                        value: jaeger-index-cleaner-container-pullspec
+                        value: jaeger-es-index-cleaner-container-pullspec
                       - name: RELATED_IMAGE_JAEGER_ES_ROLLOVER
-                        value: jaeger-rollover-container-pullspec
+                        value: jaeger-es-rollover-container-pullspec
                       - name: RELATED_IMAGE_OPENSHIFT_OAUTH_PROXY
                         value: ose-oauth-proxy-container-pullspec
                       - name: RELATED_IMAGE_OSE_KUBE_RBAC_PROXY
