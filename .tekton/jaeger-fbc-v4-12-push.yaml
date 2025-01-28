@@ -9,14 +9,14 @@ metadata:
     pipelinesascode.tekton.dev/on-cel-expression: event == "push" && target_branch == "main" &&
       (".tekton/jaeger-fbc-v4-12-pull-request.yaml".pathChanged() ||
       ".tekton/jaeger-fbc-v4-12-push.yaml".pathChanged() ||
-      "Dockerfile-4.12.catalog".pathChanged() ||
+      "Dockerfile-v4-12.catalog".pathChanged() ||
       "catalog/***".pathChanged())
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: jaeger-fbc-v4-12
-    appstudio.openshift.io/component: jaeger-fbc-v4-12
+    appstudio.openshift.io/application: jaeger-fbc-v4-12-{{target_branch}}
+    appstudio.openshift.io/component: jaeger-fbc-v4-12-{{target_branch}}
     pipelines.appstudio.openshift.io/type: build
-  name: jaeger-fbc-v4-12-on-push
+  name: jaeger-fbc-v4-12-{{target_branch}}-on-push
   namespace: rhosdt-tenant
 spec:
   params:
@@ -29,7 +29,7 @@ spec:
   - name: output-image
     value: quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-fbc-v4-12:{{revision}}
   - name: dockerfile
-    value: Dockerfile-4.12.catalog
+    value: Dockerfile-v4-12.catalog
   - name: path-context
     value: .
   - name: build-platforms

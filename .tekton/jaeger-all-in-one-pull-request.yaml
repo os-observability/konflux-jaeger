@@ -16,10 +16,10 @@ metadata:
       "jaeger-ui".pathChanged())
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: jaeger
-    appstudio.openshift.io/component: jaeger-all-in-one
+    appstudio.openshift.io/application: jaeger-{{target_branch}}
+    appstudio.openshift.io/component: jaeger-all-in-one-{{target_branch}}
     pipelines.appstudio.openshift.io/type: build
-  name: jaeger-all-in-one-on-pull-request
+  name: jaeger-all-in-one-{{target_branch}}-on-pull-request
   namespace: rhosdt-tenant
 spec:
   taskRunSpecs:
