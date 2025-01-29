@@ -15,10 +15,10 @@ metadata:
       "jaeger".pathChanged())
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: jaeger-{{target_branch}}
-    appstudio.openshift.io/component: jaeger-es-rollover-{{target_branch}}
+    appstudio.openshift.io/application: jaeger-main
+    appstudio.openshift.io/component: jaeger-es-rollover-main
     pipelines.appstudio.openshift.io/type: build
-  name: jaeger-es-rollover-{{target_branch}}-on-push
+  name: jaeger-es-rollover-main-on-push
   namespace: rhosdt-tenant
 spec:
   taskRunSpecs:

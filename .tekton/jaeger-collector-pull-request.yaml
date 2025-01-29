@@ -15,10 +15,10 @@ metadata:
       "jaeger".pathChanged())
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: jaeger-{{target_branch}}
-    appstudio.openshift.io/component: jaeger-collector-{{target_branch}}
+    appstudio.openshift.io/application: jaeger-main
+    appstudio.openshift.io/component: jaeger-collector-main
     pipelines.appstudio.openshift.io/type: build
-  name: jaeger-collector-{{target_branch}}-on-pull-request
+  name: jaeger-collector-main-on-pull-request
   namespace: rhosdt-tenant
 spec:
   taskRunSpecs:

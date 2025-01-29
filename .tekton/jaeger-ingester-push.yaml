@@ -15,10 +15,10 @@ metadata:
       "jaeger".pathChanged())
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: jaeger-{{target_branch}}
-    appstudio.openshift.io/component: jaeger-ingester-{{target_branch}}
+    appstudio.openshift.io/application: jaeger-main
+    appstudio.openshift.io/component: jaeger-ingester-main
     pipelines.appstudio.openshift.io/type: build
-  name: jaeger-ingester-{{target_branch}}-on-push
+  name: jaeger-ingester-main-on-push
   namespace: rhosdt-tenant
 spec:
   taskRunSpecs:

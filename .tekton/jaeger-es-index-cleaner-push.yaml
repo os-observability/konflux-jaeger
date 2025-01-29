@@ -15,10 +15,10 @@ metadata:
       "jaeger".pathChanged())
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: jaeger-{{target_branch}}
-    appstudio.openshift.io/component: jaeger-es-index-cleaner-{{target_branch}}
+    appstudio.openshift.io/application: jaeger-main
+    appstudio.openshift.io/component: jaeger-es-index-cleaner-main
     pipelines.appstudio.openshift.io/type: build
-  name: jaeger-es-index-cleaner-{{target_branch}}-on-push
+  name: jaeger-es-index-cleaner-main-on-push
   namespace: rhosdt-tenant
 spec:
   taskRunSpecs:

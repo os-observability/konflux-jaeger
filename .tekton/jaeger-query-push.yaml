@@ -16,10 +16,10 @@ metadata:
       "jaeger-ui".pathChanged())
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: jaeger-{{target_branch}}
-    appstudio.openshift.io/component: jaeger-query-{{target_branch}}
+    appstudio.openshift.io/application: jaeger-main
+    appstudio.openshift.io/component: jaeger-query-main
     pipelines.appstudio.openshift.io/type: build
-  name: jaeger-query-{{target_branch}}-on-push
+  name: jaeger-query-main-on-push
   namespace: rhosdt-tenant
 spec:
   taskRunSpecs:

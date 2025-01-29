@@ -16,10 +16,10 @@ metadata:
       "jaeger-operator".pathChanged())
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: jaeger-{{target_branch}}
-    appstudio.openshift.io/component: jaeger-bundle-quay-{{target_branch}}
+    appstudio.openshift.io/application: jaeger-main
+    appstudio.openshift.io/component: jaeger-bundle-quay-main
     pipelines.appstudio.openshift.io/type: build
-  name: jaeger-bundle-quay-{{target_branch}}-on-pull-request
+  name: jaeger-bundle-quay-main-on-pull-request
   namespace: rhosdt-tenant
 spec:
   params:
