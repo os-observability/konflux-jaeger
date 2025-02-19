@@ -21,6 +21,13 @@ spec:
   version: 1.62.0-2
   replaces: jaeger-operator.v1.62.0-1
   description: |-
+
+    ## DEPRECATION NOTE
+
+    The Red Hat OpenShift distributed tracing platform based on Jaeger is a deprecated feature. It will be removed in a future release of this product and is not recommended for new deployments. Use Red Hat OpenShift distributed tracing platform based on Tempo instead.
+
+    ## About
+
     Red Hat OpenShift distributed tracing platform based on Jaeger. Jaeger is project inspired by [Dapper](https://research.google.com/pubs/pub36356.html) and [OpenZipkin](http://zipkin.io/). It is a distributed tracing system released as open source by Uber Technologies. It is used for monitoring and troubleshooting microservices-based distributed systems.
     
     ### Core capabilities
