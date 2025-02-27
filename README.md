@@ -54,14 +54,81 @@ Once the PR is merged and bundle is built, create another PR `Release - update c
 
 Images can be found at https://quay.io/organization/redhat-user-workloads (search for `rhosdt-tenant/jaeger`).
 
+### Deploy Image Digest Mirror Set
+
+Before using the bundle or catalog method for installing the operator, the ImageDigestMirrorSet needs to be created. The bundle and catalog uses pullspecs from `registry.redhat.io` which are not available before the release. Therefore the images need to be re-mapped.
+
+From https://konflux.pages.redhat.com/docs/users/getting-started/building-olm-products.html#releasing-a-fbc-component
+
+```yaml
+kubectl apply -f - <<EOF
+apiVersion: config.openshift.io/v1
+kind: ImageDigestMirrorSet
+metadata:
+  name: jaeger-idms
+spec:
+  imageDigestMirrors:
+  - source: registry.redhat.io/rhosdt/jaeger-rhel8-operator
+    mirrors:
+      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-operator
+  - source: registry.redhat.io/rhosdt/jaeger-collector-rhel8
+    mirrors:
+      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-collector
+  - source: registry.redhat.io/rhosdt/jaeger-query-rhel8
+    mirrors:
+      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-query
+  - source: registry.redhat.io/rhosdt/jaeger-agent-rhel8
+    mirrors:
+      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-agent
+  - source: registry.redhat.io/rhosdt/jaeger-ingester-rhel8
+    mirrors:
+      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-ingester
+  - source: registry.redhat.io/rhosdt/jaeger-all-in-one-rhel8
+    mirrors:
+      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-all-in-one
+  - source: registry.redhat.io/rhosdt/jaeger-es-index-cleaner-rhel8
+    mirrors:
+      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-es-index-cleaner
+  - source: registry.redhat.io/rhosdt/jaeger-es-rollover-rhel8
+    mirrors:
+      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-es-rollover
+  - source: registry.redhat.io/rhosdt/jaeger-operator-bundle
+    mirrors:
+      - quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle
+EOF
+```
+
 ### Deploy bundle
 
-get latest pullspec from `kubectl get component jaeger-bundle-quay -o yaml`, then run:
+get latest pullspec from `kubectl get component jaeger-bundle-main -o yaml`, then run:
 ```bash
 kubectl create namespace openshift-distributed-tracing
-operator-sdk run bundle -n openshift-distributed-tracing quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle-quay@sha256:509300864348265febf30328f9f380d1a5340bb5a5d466c51bf9951e6767c3ea
+operator-sdk run bundle -n openshift-distributed-tracing quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle@sha256:33de16a561ce5bccff0f2b9de19ce65cd77191b8b69f3e943e4efcdf68572896
 operator-sdk cleanup -n openshift-distributed-tracing jaeger-product
 ```
+### Deploy catalog
+
+Get catalog for specific version from [Konflux](https://console.redhat.com/application-pipeline/workspaces/rhosdt/applications/jaeger-fbc-v4-15-main/components/jaeger-fbc-v4-15-main)
+
+```yaml
+kubectl apply -f - <<EOF
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+   name: konflux-catalog-jaeger
+   namespace: openshift-marketplace
+spec:
+   sourceType: grpc
+   image: quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-fbc-v4-15:e962273c6224621bd225d42c6cd843af6ee57b34
+   displayName: Konflux Catalog Jaeger
+   publisher: grpc
+EOF
+
+kubectl get pods -w -n openshift-marketplace
+kubectl delete CatalogSource konflux-catalog-jaeger -n openshift-marketplace
+```
+
+`Konflux catalog Jaeger` menu should appear in the OCP console under Operators->OperatorHub.
 
 ### Extract file based catalog from OpenShift index
 
