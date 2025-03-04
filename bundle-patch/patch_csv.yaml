@@ -24,7 +24,7 @@ spec:
 
     ## DEPRECATION NOTE
 
-    The Red Hat OpenShift distributed tracing platform based on Jaeger is a deprecated feature. It will be removed in a future release of this product and is not recommended for new deployments. Use Red Hat OpenShift distributed tracing platform based on Tempo instead.
+    The Red Hat OpenShift distributed tracing platform based on Jaeger is deprecated. It will be removed in a future and is not recommended for new deployments. Install the Tempo Operator (Red Hat OpenShift distributed tracing platform based on Tempo) instead.
 
     ## About
 
