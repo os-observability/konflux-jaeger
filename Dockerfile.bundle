@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:53d6c19d664f4f418ce5c823d3a33dbb562a2550ea249cf07ef10aa063ace38f as builder
+FROM registry.redhat.io/ubi8/ubi:latest@sha256:881aaf5fa0d1f85925a1b9668a1fc7f850a11ca30fd3e37ea194db4edff892a5 as builder
 
 USER root
 WORKDIR /
@@ -6,7 +6,8 @@ WORKDIR /
 RUN mkdir /licenses
 COPY jaeger-operator/LICENSE /licenses/.
 
-RUN dnf install -y python3 python3-ruamel-yaml-clib python3-ruamel-yaml patch
+# TODO use python3-ruamel-yaml-clib python3-ruamel-yaml once on RHEL9 which is easier to use
+RUN dnf install -y python3 python3-pyyaml patch
 
 COPY bundle-patch .
 COPY jaeger-operator/bundle/manifests /manifests/
