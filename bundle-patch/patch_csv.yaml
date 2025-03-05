@@ -22,9 +22,11 @@ spec:
   replaces: jaeger-operator.v1.62.0-1
   description: |-
 
-    ## DEPRECATION NOTE
+    ## Operator deprecation warning
 
-    The Red Hat OpenShift distributed tracing platform based on Jaeger is deprecated. It will be removed in a future and is not recommended for new deployments. Install the Tempo Operator (Red Hat OpenShift distributed tracing platform based on Tempo) instead.
+    This Operator is deprecated and not recommended for new deployments. This Operator will be removed from the `redhat-operators` catalog in a future release.
+
+    If this is not the first time you are installing it, migrate to the Red Hat build of OpenTelemetry Operator and the Tempo Operator for distributed tracing collection and storage. For more information, see "Migrating" in the Red Hat build of OpenTelemetry documentation, "Installing" in the Red Hat build of OpenTelemetry documentation, and "Installing" in the distributed tracing platform (Tempo) documentation.
 
     ## About
 
