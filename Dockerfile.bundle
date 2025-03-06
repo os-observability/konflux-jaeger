@@ -24,7 +24,7 @@ RUN ./update_bundle.sh && cat /manifests/jaeger-operator.clusterserviceversion.y
 FROM scratch
 
 WORKDIR /
-RUN mkdir /licenses
+
 COPY jaeger-operator/LICENSE /licenses/.
 
 # Core bundle labels.
