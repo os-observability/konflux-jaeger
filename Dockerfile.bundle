@@ -1,13 +1,15 @@
-FROM registry.redhat.io/ubi8/ubi:latest@sha256:881aaf5fa0d1f85925a1b9668a1fc7f850a11ca30fd3e37ea194db4edff892a5 as builder
+FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:c38cc770631788157f8ea989df65ff30359c9f8af3246fef244b32caed9d5862 as builder
 
 USER root
-WORKDIR /
+WORKDIR /opt/bundle-build
+
+RUN microdnf update -y && rm -rf /var/cache/yum && \
+    microdnf install -y python3 python3-pyyaml patch
+
 
 RUN mkdir /licenses
 COPY jaeger-operator/LICENSE /licenses/.
 
-# TODO use python3-ruamel-yaml-clib python3-ruamel-yaml once on RHEL9 which is easier to use
-RUN dnf install -y python3 python3-pyyaml patch
 
 COPY bundle-patch .
 COPY jaeger-operator/bundle/manifests /manifests/
@@ -21,9 +23,9 @@ ARG REGISTRY=quay.io/redhat-user-workloads
 
 RUN ./update_bundle.sh && cat /manifests/jaeger-operator.clusterserviceversion.yaml /metadata/annotations.yaml
 
-FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:c38cc770631788157f8ea989df65ff30359c9f8af3246fef244b32caed9d5862
-
+FROM scratch
 WORKDIR /
+
 RUN mkdir /licenses
 COPY jaeger-operator/LICENSE /licenses/.
 
