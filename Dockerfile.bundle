@@ -1,25 +1,26 @@
-FROM registry.redhat.io/ubi8/ubi:latest@sha256:881aaf5fa0d1f85925a1b9668a1fc7f850a11ca30fd3e37ea194db4edff892a5 as builder
+FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:c38cc770631788157f8ea989df65ff30359c9f8af3246fef244b32caed9d5862 as builder
 
 USER root
-WORKDIR /
+WORKDIR /opt/bundle-build
+
+# TODO use python3-ruamel-yaml-clib python3-ruamel-yaml once on RHEL9 which is easier to use
+RUN microdnf update -y && rm -rf /var/cache/yum && \
+    microdnf install -y python3 python3-pyyaml patch
 
 RUN mkdir /licenses
 COPY jaeger-operator/LICENSE /licenses/.
 
-# TODO use python3-ruamel-yaml-clib python3-ruamel-yaml once on RHEL9 which is easier to use
-RUN dnf install -y python3 python3-pyyaml patch
-
 COPY bundle-patch .
-COPY jaeger-operator/bundle/manifests /manifests/
-COPY jaeger-operator/bundle/metadata /metadata/
+COPY jaeger-operator/bundle/manifests manifests/
+COPY jaeger-operator/bundle/metadata metadata/
 
-RUN ls /manifests -al
-RUN ls /metadata -al
+RUN ls manifests -al
+RUN ls metadata -al
 
 # stage - registry.stage.redhat.io, prod - registry.redhat.io
 ARG REGISTRY=quay.io/redhat-user-workloads
 
-RUN ./update_bundle.sh && cat /manifests/jaeger-operator.clusterserviceversion.yaml /metadata/annotations.yaml
+RUN ./update_bundle.sh && cat manifests/jaeger-operator.clusterserviceversion.yaml metadata/annotations.yaml
 
 FROM scratch
 
@@ -58,8 +59,8 @@ LABEL release="1.65.0-1" \
       maintainer="support@redhat.com"
 
 # Copy files to locations specified by labels.
-COPY --from=builder /manifests /manifests/
-COPY --from=builder /metadata /metadata/
+COPY --from=builder /opt/bundle-build/manifests /manifests/
+COPY --from=builder /opt/bundle-build/metadata /metadata/
 COPY jaeger-operator/bundle/tests/scorecard /tests/scorecard/
 
 ARG USER_UID=1001
