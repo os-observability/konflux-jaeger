@@ -53,9 +53,6 @@ entries:
 - name: jaeger-operator.v1.62.0-2
   replaces: jaeger-operator.v1.62.0-1
   skipRange: '>=1.13.0 <1.62.0-2'
-- name: jaeger-operator.v1.65.0-1
-  replaces: jaeger-operator.v1.62.0-2
-  skipRange: '>=1.13.0 <1.65.0-1'
 name: stable
 package: jaeger-product
 schema: olm.channel
@@ -2670,6 +2667,8 @@ properties:
     provider:
       name: Red Hat
 relatedImages:
+- image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:44b22b250cdf29c29cf8c71941ea9ffd84c8bc7f4fddffafcd1b194a125d9028
+  name: ""
 - image: registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:7efeeb8b29872a6f0271f651d7ae02c91daea16d853c50e374c310f044d8c76c
   name: ose-rbac-proxy
 - image: registry.redhat.io/openshift4/ose-oauth-proxy@sha256:234af927030921ab8f7333f61f967b4b4dee37a1b3cf85689e9e63240dd62800
@@ -2686,8 +2685,6 @@ relatedImages:
   name: jaeger-es-rollover
 - image: registry.redhat.io/rhosdt/jaeger-ingester-rhel8@sha256:50840f62efa5503badb00176b105fcbb202918ca6da2b66e06d1d44988699c8a
   name: jaeger-ingester
-- image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:44b22b250cdf29c29cf8c71941ea9ffd84c8bc7f4fddffafcd1b194a125d9028
-  name: ""
 - image: registry.redhat.io/rhosdt/jaeger-query-rhel8@sha256:2d6aaa213f6f7153478d932cef03837fd1a62ba8ecf0049db5608f1f9cbc4e4a
   name: jaeger-query
 - image: registry.redhat.io/rhosdt/jaeger-rhel8-operator@sha256:2116ed082118c44914fd1309ed1c8d0f4aaf006903ba6eb40b2637de2b66a74e
@@ -2862,6 +2859,8 @@ properties:
     provider:
       name: Red Hat
 relatedImages:
+- image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:665af6eb855ed08e7838035e6748f3a137ae6801023a93c82fcaff4b736fd317
+  name: ""
 - image: registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:7efeeb8b29872a6f0271f651d7ae02c91daea16d853c50e374c310f044d8c76c
   name: ose-rbac-proxy
 - image: registry.redhat.io/openshift4/ose-oauth-proxy@sha256:234af927030921ab8f7333f61f967b4b4dee37a1b3cf85689e9e63240dd62800
@@ -2878,211 +2877,8 @@ relatedImages:
   name: jaeger-es-rollover
 - image: registry.redhat.io/rhosdt/jaeger-ingester-rhel8@sha256:b06a13d35b7ff03ed3a5512b64e5a472a8365e99dc5c9ba69e844db2b5284ee8
   name: jaeger-ingester
-- image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:665af6eb855ed08e7838035e6748f3a137ae6801023a93c82fcaff4b736fd317
-  name: ""
 - image: registry.redhat.io/rhosdt/jaeger-query-rhel8@sha256:84020ce29bcb5a4bd018e6596188ae919c5cd600e08f78a546c0e76ea477685e
   name: jaeger-query
 - image: registry.redhat.io/rhosdt/jaeger-rhel8-operator@sha256:fdb5ca69bdd3f2fd10775a2e91c975fa2624f0cddbc9ac786e556dbf95995269
-  name: jaeger-operator
-schema: olm.bundle
----
-image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:fc57d5af27f6eb2fac6bfa81446c95e0d18e416d7f5339a41d24e3a319908e00
-name: jaeger-operator.v1.65.0-1
-package: jaeger-product
-properties:
-- type: olm.gvk
-  value:
-    group: jaegertracing.io
-    kind: Jaeger
-    version: v1
-- type: olm.package
-  value:
-    packageName: jaeger-product
-    version: 1.65.0-1
-- type: olm.csv.metadata
-  value:
-    annotations:
-      alm-examples: |-
-        [
-          {
-            "apiVersion": "jaegertracing.io/v1",
-            "kind": "Jaeger",
-            "metadata": {
-              "name": "my-jaeger"
-            },
-            "spec": {
-              "strategy": "allInOne"
-            }
-          }
-        ]
-      capabilities: Deep Insights
-      categories: Logging & Tracing
-      certified: "false"
-      containerImage: registry.redhat.io/rhosdt/jaeger-rhel8-operator@sha256:603b87669f3832505c461363f84b62dc4911a05d99edd96a5dde232f66784a8c
-      createdAt: 05 Mar 2025, 17:35
-      description: Provides tracing, monitoring and troubleshooting for microservices-based
-        distributed systems
-      features.operators.openshift.io/cnf: "false"
-      features.operators.openshift.io/cni: "false"
-      features.operators.openshift.io/csi: "false"
-      features.operators.openshift.io/disconnected: "true"
-      features.operators.openshift.io/fips-compliant: "false"
-      features.operators.openshift.io/proxy-aware: "true"
-      features.operators.openshift.io/tls-profiles: "false"
-      features.operators.openshift.io/token-auth-aws: "false"
-      features.operators.openshift.io/token-auth-azure: "false"
-      features.operators.openshift.io/token-auth-gcp: "false"
-      olm.skipRange: '>=1.13.0 <1.65.0-1'
-      operatorframework.io/cluster-monitoring: "true"
-      operatorframework.io/suggested-namespace: openshift-distributed-tracing
-      operators.openshift.io/infrastructure-features: '["disconnected"]'
-      operators.openshift.io/valid-subscription: '["OpenShift Container Platform",
-        "OpenShift Platform Plus"]'
-      operators.operatorframework.io/builder: operator-sdk-v1.32.0
-      operators.operatorframework.io/project_layout: go.kubebuilder.io/v3
-      repository: https://github.com/os-observability/konflux-jaeger
-      support: Red Hat
-    apiServiceDefinitions: {}
-    crdDescriptions:
-      owned:
-      - description: Jaeger is the Schema for the jaegers API
-        displayName: Jaeger
-        kind: Jaeger
-        name: jaegers.jaegertracing.io
-        resources:
-        - kind: ConfigMaps
-          name: ""
-          version: v1
-        - kind: CronJob
-          name: ""
-          version: v1beta1
-        - kind: DaemonSets
-          name: ""
-          version: apps/v1
-        - kind: Deployment
-          name: ""
-          version: apps/v1
-        - kind: Ingress
-          name: ""
-          version: networking/v1
-        - kind: Pod
-          name: ""
-          version: v1
-        - kind: Service
-          name: ""
-          version: v1
-        - kind: StatefulSets
-          name: ""
-          version: apps/v1
-        specDescriptors:
-        - displayName: Strategy
-          path: allInOne.strategy
-        - displayName: Strategy
-          path: collector.strategy
-        - displayName: Strategy
-          path: query.strategy
-        - displayName: Strategy
-          path: strategy
-        statusDescriptors:
-        - displayName: Phase
-          path: phase
-        - displayName: Version
-          path: version
-        version: v1
-    description: |2-
-
-      ## Operator deprecation warning
-
-      This Operator is deprecated and not recommended for new deployments. This Operator will be removed from the `redhat-operators` catalog in a future release.
-
-      If this is not the first time you are installing it, migrate to the Red Hat build of OpenTelemetry Operator and the Tempo Operator for distributed tracing collection and storage. For more information, see "Migrating" in the Red Hat build of OpenTelemetry documentation, "Installing" in the Red Hat build of OpenTelemetry documentation, and "Installing" in the distributed tracing platform (Tempo) documentation.
-
-      ## About
-
-      Red Hat OpenShift distributed tracing platform based on Jaeger. Jaeger is project inspired by [Dapper](https://research.google.com/pubs/pub36356.html) and [OpenZipkin](http://zipkin.io/). It is a distributed tracing system released as open source by Uber Technologies. It is used for monitoring and troubleshooting microservices-based distributed systems.
-
-      ### Core capabilities
-      Jaeger is used for monitoring and troubleshooting microservices-based distributed systems, including:
-      * Distributed context propagation
-      * Distributed transaction monitoring
-      * Root cause analysis
-      * Service dependency analysis
-      * Performance / latency optimization
-      * OpenTracing compatible data model
-      * Multiple storage backends: Elasticsearch, Memory.
-
-      ### Operator features
-
-      * **Multiple modes** - Provides `allInOne`, `production` and `streaming` [modes of deployment](https://www.jaegertracing.io/docs/latest/operator/#deployment-strategies).
-
-      * **Configuration** - The Operator manages [configuration information](https://www.jaegertracing.io/docs/latest/operator/#configuring-the-custom-resource) when installing Jaeger instances.
-
-      * **Storage** - [Configure storage](https://www.jaegertracing.io/docs/latest/operator/#storage-options) used by Jaeger. By default, `memory` is used. Other options include `elasticsearch`. The operator can delegate creation of an Elasticsearch cluster to the Elasticsearch Operator if deployed.
-
-      * **Agent** - can be deployed as [sidecar](https://www.jaegertracing.io/docs/latest/operator/#auto-injecting-jaeger-agent-sidecars) (default) and/or [daemonset](https://www.jaegertracing.io/docs/latest/operator/#installing-the-agent-as-daemonset).
-
-      * **UI** - Optionally setup secure route to provide [access to the Jaeger UI](https://www.jaegertracing.io/docs/latest/operator/#accessing-the-jaeger-console-ui).
-
-      ### Before you start
-      1. Ensure that the appropriate storage solution, that will be used by the Jaeger instance, is available and configured.
-      2. If intending to deploy an Elasticsearch cluster via the Jaeger custom resource, then the Elasticsearch Operator must first be installed.
-
-      ### Support & Troubleshooting
-
-      Red Hat OpenShift distributed tracing Jaeger is available and supported as part of a Red Hat OpenShift subscription.
-      Checking the [Red Hat Documentation](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/distributed_tracing/distributed-tracing-platform-jaeger) is recommended when installing, configuring, and managing the Operator and instances.
-      Support is provided to Red Hat OpenShift entitled customers subject to the [Production Scope for Coverage](https://access.redhat.com/support/offerings/production/soc) and the [Red Hat OpenShift distributed tracing Life Cycle](https://access.redhat.com/support/policy/updates/openshift#jaeger).
-    displayName: Red Hat OpenShift distributed tracing platform
-    installModes:
-    - supported: false
-      type: OwnNamespace
-    - supported: false
-      type: SingleNamespace
-    - supported: false
-      type: MultiNamespace
-    - supported: true
-      type: AllNamespaces
-    keywords:
-    - tracing
-    - monitoring
-    - troubleshooting
-    labels:
-      operatorframework.io/arch.amd64: supported
-      operatorframework.io/arch.arm64: supported
-      operatorframework.io/arch.ppc64le: supported
-      operatorframework.io/arch.s390x: supported
-      operatorframework.io/os.linux: supported
-    links:
-    - name: Jaeger Operator Source Code
-      url: https://github.com/jaegertracing/jaeger-operator
-    maintainers:
-    - email: support@redhat.com
-      name: Red Hat support
-    maturity: alpha
-    minKubeVersion: 1.19.0
-    provider:
-      name: Red Hat
-relatedImages:
-- image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:fc57d5af27f6eb2fac6bfa81446c95e0d18e416d7f5339a41d24e3a319908e00
-  name: ""
-- image: registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:7efeeb8b29872a6f0271f651d7ae02c91daea16d853c50e374c310f044d8c76c
-  name: ose-rbac-proxy
-- image: registry.redhat.io/openshift4/ose-oauth-proxy@sha256:234af927030921ab8f7333f61f967b4b4dee37a1b3cf85689e9e63240dd62800
-  name: ose-oauth-proxy
-- image: registry.redhat.io/rhosdt/jaeger-agent-rhel8@sha256:d4f7f5b84a63138e08a07a623850ab51cd9feb399a19b7edde185e0f50b110a2
-  name: jaeger-agent
-- image: registry.redhat.io/rhosdt/jaeger-all-in-one-rhel8@sha256:a03ea332e4e8f2ac7092c81b937c372d86521296e80443bdcc9783cc41fe8da2
-  name: jaeger-all-in-one
-- image: registry.redhat.io/rhosdt/jaeger-collector-rhel8@sha256:2951f9815147d3efe875d6cab6a223d54ee590fc83d1a6f0d4c66d856231a0fd
-  name: jaeger-collector
-- image: registry.redhat.io/rhosdt/jaeger-es-index-cleaner-rhel8@sha256:97dce423eff1f460bf99e15699747b661e1523962c8ee68a6022811bb0b5ad8c
-  name: jaeger-es-index-cleaner
-- image: registry.redhat.io/rhosdt/jaeger-es-rollover-rhel8@sha256:1023192377fc4b0cb063730ab71beb711d1d90fcf81b6d2ed8271a217ae806e7
-  name: jaeger-es-rollover
-- image: registry.redhat.io/rhosdt/jaeger-ingester-rhel8@sha256:d4fb75b7da76a827f9618cb5f393f791816626674d19f94d062d2ee394f5c6e7
-  name: jaeger-ingester
-- image: registry.redhat.io/rhosdt/jaeger-query-rhel8@sha256:ae75fc25bc85392d9d7416a586ce241b66adfadc25e2c4da84c904282e96c1ca
-  name: jaeger-query
-- image: registry.redhat.io/rhosdt/jaeger-rhel8-operator@sha256:603b87669f3832505c461363f84b62dc4911a05d99edd96a5dde232f66784a8c
   name: jaeger-operator
 schema: olm.bundle
