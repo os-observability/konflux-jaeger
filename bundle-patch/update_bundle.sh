@@ -15,7 +15,7 @@ if [[ $REGISTRY == "registry.redhat.io" || $REGISTRY == "registry.stage.redhat.i
 fi
 
 
-export CSV_FILE=/manifests/jaeger-operator.clusterserviceversion.yaml
+export CSV_FILE=manifests/jaeger-operator.clusterserviceversion.yaml
 
 sed -i "s#jaeger-collector-container-pullspec#$JAEGER_COLLECTOR_IMAGE_PULLSPEC#g" patch_csv.yaml
 sed -i "s#jaeger-agent-container-pullspec#$JAEGER_AGENT_IMAGE_PULLSPEC#g" patch_csv.yaml
