@@ -1,9 +1,7 @@
 FROM registry.redhat.io/ubi8/ubi:latest@sha256:881aaf5fa0d1f85925a1b9668a1fc7f850a11ca30fd3e37ea194db4edff892a5 as builder
 
 USER root
-
 WORKDIR /
-
 
 RUN mkdir /licenses
 COPY jaeger-operator/LICENSE /licenses/.
@@ -24,9 +22,9 @@ ARG REGISTRY=quay.io/redhat-user-workloads
 RUN ./update_bundle.sh && cat /manifests/jaeger-operator.clusterserviceversion.yaml /metadata/annotations.yaml
 
 FROM scratch
+
 WORKDIR /
 
-RUN mkdir /licenses
 COPY jaeger-operator/LICENSE /licenses/.
 
 # Core bundle labels.
