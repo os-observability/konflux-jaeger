@@ -15,12 +15,21 @@ metadata:
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
     features.operators.openshift.io/csi: "false"
-    olm.skipRange: '>=1.13.0 <1.62.0-2'
-  name: jaeger-operator.v1.62.0-2
+    olm.skipRange: '>=1.13.0 <1.65.0-1'
+  name: jaeger-operator.v1.65.0-1
 spec:
-  version: 1.62.0-2
-  replaces: jaeger-operator.v1.62.0-1
+  version: 1.65.0-1
+  replaces: jaeger-operator.v1.62.0-2
   description: |-
+
+    ## Operator deprecation warning
+
+    This Operator is deprecated and not recommended for new deployments. This Operator will be removed from the `redhat-operators` catalog in a future release.
+
+    If this is not the first time you are installing it, migrate to the Red Hat build of OpenTelemetry Operator and the Tempo Operator for distributed tracing collection and storage. For more information, see "Migrating" in the Red Hat build of OpenTelemetry documentation, "Installing" in the Red Hat build of OpenTelemetry documentation, and "Installing" in the distributed tracing platform (Tempo) documentation.
+
+    ## About
+
     Red Hat OpenShift distributed tracing platform based on Jaeger. Jaeger is project inspired by [Dapper](https://research.google.com/pubs/pub36356.html) and [OpenZipkin](http://zipkin.io/). It is a distributed tracing system released as open source by Uber Technologies. It is used for monitoring and troubleshooting microservices-based distributed systems.
     
     ### Core capabilities

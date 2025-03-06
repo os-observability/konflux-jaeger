@@ -1,12 +1,15 @@
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:53d6c19d664f4f418ce5c823d3a33dbb562a2550ea249cf07ef10aa063ace38f as builder
+FROM registry.redhat.io/ubi8/ubi:latest@sha256:881aaf5fa0d1f85925a1b9668a1fc7f850a11ca30fd3e37ea194db4edff892a5 as builder
 
 USER root
+
 WORKDIR /
+
 
 RUN mkdir /licenses
 COPY jaeger-operator/LICENSE /licenses/.
 
-RUN dnf install -y python3 python3-ruamel-yaml-clib python3-ruamel-yaml patch
+# TODO use python3-ruamel-yaml-clib python3-ruamel-yaml once on RHEL9 which is easier to use
+RUN dnf install -y python3 python3-pyyaml patch
 
 COPY bundle-patch .
 COPY jaeger-operator/bundle/manifests /manifests/
@@ -20,9 +23,9 @@ ARG REGISTRY=quay.io/redhat-user-workloads
 
 RUN ./update_bundle.sh && cat /manifests/jaeger-operator.clusterserviceversion.yaml /metadata/annotations.yaml
 
-FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:cf095e5668919ba1b4ace3888107684ad9d587b1830d3eb56973e6a54f456e67
-
+FROM scratch
 WORKDIR /
+
 RUN mkdir /licenses
 COPY jaeger-operator/LICENSE /licenses/.
 
@@ -40,8 +43,8 @@ LABEL operators.operatorframework.io.metrics.project_layout=go.kubebuilder.io/v3
 LABEL operators.operatorframework.io.test.mediatype.v1=scorecard+v1
 LABEL operators.operatorframework.io.test.config.v1=tests/scorecard/
 
-LABEL release="1.62.0-2" \
-      version="1.62.0-2" \
+LABEL release="1.65.0-1" \
+      version="1.65.0-1" \
       com.redhat.openshift.versions=v4.12 \
       name="rhosdt/jaeger-operator-bundle" \
       distribution-scope="public" \
