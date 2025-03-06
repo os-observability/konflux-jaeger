@@ -14,13 +14,13 @@ COPY bundle-patch .
 COPY jaeger-operator/bundle/manifests manifests/
 COPY jaeger-operator/bundle/metadata metadata/
 
-RUN ls /manifests -al
-RUN ls /metadata -al
+RUN ls manifests -al
+RUN ls metadata -al
 
 # stage - registry.stage.redhat.io, prod - registry.redhat.io
 ARG REGISTRY=quay.io/redhat-user-workloads
 
-RUN ./update_bundle.sh && cat manifests/jaeger-operator.clusterserviceversion.yaml /metadata/annotations.yaml
+RUN ./update_bundle.sh && cat manifests/jaeger-operator.clusterserviceversion.yaml metadata/annotations.yaml
 
 FROM scratch
 
