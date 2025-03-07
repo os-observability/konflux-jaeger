@@ -11,6 +11,7 @@ metadata:
       (".tekton/fbc-build-pipeline.yaml".pathChanged() ||
       ".tekton/jaeger-fbc-v4-12-pull-request.yaml".pathChanged() ||
       ".tekton/jaeger-fbc-v4-12-push.yaml".pathChanged() ||
+      ".tekton/images-mirror-set.yaml".pathChanged() ||
       "Dockerfile-v4-12.catalog".pathChanged() ||
       "catalog/***".pathChanged())
   creationTimestamp: null
