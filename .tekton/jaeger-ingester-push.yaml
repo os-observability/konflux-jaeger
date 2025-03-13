@@ -35,6 +35,8 @@ spec:
     value: '{{revision}}'
   - name: prefetch-input
     value: '[{"type": "gomod", "path": "./jaeger"},  {"type": "rpm"}]'
+  - name: prefetch-dev-package-managers-enabled
+    value: "true"
   - name: hermetic
     value: "true"
   - name: output-image
