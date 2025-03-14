@@ -2886,7 +2886,7 @@ relatedImages:
   name: jaeger-operator
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:104947c697bd3ebcdd004b8b12972d2e01ae3649a64c3d4725fe8cbdc791eb4d
+image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:d3996bcda8a773360c63e5f0703e9c2c196e1e76d1a7d94d17681ebd35db687a
 name: jaeger-operator.v1.65.0-1
 package: jaeger-product
 properties:
@@ -2919,7 +2919,7 @@ properties:
       categories: Logging & Tracing
       certified: "false"
       containerImage: registry.redhat.io/rhosdt/jaeger-rhel8-operator@sha256:e7f0a98578deb66025e776f9dc248cedab121d94612b2a71a3f7534354a2e0d1
-      createdAt: 06 Mar 2025, 19:34
+      createdAt: 13 Mar 2025, 14:15
       description: Provides tracing, monitoring and troubleshooting for microservices-based
         distributed systems
       features.operators.openshift.io/cnf: "false"
@@ -3063,7 +3063,7 @@ properties:
     provider:
       name: Red Hat
 relatedImages:
-- image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:104947c697bd3ebcdd004b8b12972d2e01ae3649a64c3d4725fe8cbdc791eb4d
+- image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:d3996bcda8a773360c63e5f0703e9c2c196e1e76d1a7d94d17681ebd35db687a
   name: ""
 - image: registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:7efeeb8b29872a6f0271f651d7ae02c91daea16d853c50e374c310f044d8c76c
   name: ose-rbac-proxy
