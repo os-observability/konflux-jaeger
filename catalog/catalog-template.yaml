@@ -89,6 +89,6 @@ entries:
   schema: olm.bundle
 - image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:665af6eb855ed08e7838035e6748f3a137ae6801023a93c82fcaff4b736fd317
   schema: olm.bundle
-- image: quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle@sha256:104947c697bd3ebcdd004b8b12972d2e01ae3649a64c3d4725fe8cbdc791eb4d
+- image: quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle@sha256:d3996bcda8a773360c63e5f0703e9c2c196e1e76d1a7d94d17681ebd35db687a
   schema: olm.bundle
 schema: olm.template.basic
