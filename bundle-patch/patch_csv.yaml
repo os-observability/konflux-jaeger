@@ -16,6 +16,7 @@ metadata:
     features.operators.openshift.io/cni: "false"
     features.operators.openshift.io/csi: "false"
     olm.skipRange: '>=1.13.0 <1.65.0-1'
+    console.openshift.io/operator-monitoring-default: "true"
   name: jaeger-operator.v1.65.0-1
 spec:
   version: 1.65.0-1
