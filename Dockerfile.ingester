@@ -17,7 +17,7 @@ RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variabl
     go build -C ./cmd/ingester -mod=mod -o ./jaeger -trimpath -ldflags "-s -w -X ${VERSION_PKG}.commitSHA=${GIT_COMMIT_SHA} -X ${VERSION_PKG}.latestVersion=${GIT_LATEST_TAG} -X ${VERSION_PKG}.date=${VERSION_DATE}"
 
 
-FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:c38cc770631788157f8ea989df65ff30359c9f8af3246fef244b32caed9d5862
+FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:5b195cf0b8eb2262ce81334ee44066fdb5026022803f55bfe607be7d08d4fe43
 WORKDIR /
 
 # For installing RPM updates from lock file
