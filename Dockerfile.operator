@@ -17,7 +17,7 @@ RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variabl
     exportOrFail JAEGER_VERSION=`grep jaeger= versions.txt | awk -F= '{print $2}'` && \
     go build -mod=mod -o ./jaeger-operator -trimpath -ldflags "-s -w -X ${VERSION_PKG}.version=${GIT_LATEST_TAG} -X ${VERSION_PKG}.buildDate=${VERSION_DATE} -X ${VERSION_PKG}.defaultJaeger=${JAEGER_VERSION}"
 
-FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:c38cc770631788157f8ea989df65ff30359c9f8af3246fef244b32caed9d5862
+FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:5b195cf0b8eb2262ce81334ee44066fdb5026022803f55bfe607be7d08d4fe43
 WORKDIR /
 
 RUN microdnf update -y && rm -rf /var/cache/yum && \
