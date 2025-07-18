@@ -12,6 +12,7 @@ metadata:
       ".tekton/jaeger-collector-pull-request.yaml".pathChanged() ||
       ".tekton/jaeger-collector-push.yaml".pathChanged() ||
       "Dockerfile.collector".pathChanged() ||
+      "rpms.lock.yaml".pathChanged() ||
       "jaeger".pathChanged())
   creationTimestamp: null
   labels:

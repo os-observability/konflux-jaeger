@@ -12,6 +12,7 @@ metadata:
       ".tekton/jaeger-all-in-one-pull-request.yaml".pathChanged() ||
       ".tekton/jaeger-all-in-one-push.yaml".pathChanged() ||
       "Dockerfile.allinone".pathChanged() ||
+      "rpms.lock.yaml".pathChanged() ||
       "jaeger".pathChanged() ||
       "jaeger-ui".pathChanged())
   creationTimestamp: null
