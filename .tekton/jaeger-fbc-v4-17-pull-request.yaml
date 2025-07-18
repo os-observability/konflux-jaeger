@@ -39,8 +39,7 @@ spec:
       value: .
     - name: build-platforms
       value:
-        - localhost
-        - linux/arm64
+        - linux/x86_64
   pipelineRef:
     name: fbc-build-pipeline
   taskRunTemplate: {}
