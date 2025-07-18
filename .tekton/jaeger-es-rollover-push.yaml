@@ -12,6 +12,7 @@ metadata:
       ".tekton/jaeger-es-rollover-pull-request.yaml".pathChanged() ||
       ".tekton/jaeger-es-rollover-push.yaml".pathChanged() ||
       "Dockerfile.esrollover".pathChanged() ||
+      "rpms.lock.yaml".pathChanged() ||
       "jaeger".pathChanged())
   creationTimestamp: null
   labels:

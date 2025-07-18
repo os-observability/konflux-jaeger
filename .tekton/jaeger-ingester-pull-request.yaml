@@ -12,6 +12,7 @@ metadata:
       ".tekton/jaeger-ingester-pull-request.yaml".pathChanged() ||
       ".tekton/jaeger-ingester-push.yaml".pathChanged() ||
       "Dockerfile.ingester".pathChanged() ||
+      "rpms.lock.yaml".pathChanged() ||
       "jaeger".pathChanged())
   creationTimestamp: null
   labels:

@@ -12,6 +12,7 @@ metadata:
       ".tekton/jaeger-es-index-cleaner-pull-request.yaml".pathChanged() ||
       ".tekton/jaeger-es-index-cleaner-push.yaml".pathChanged() ||
       "Dockerfile.escleaner".pathChanged() ||
+      "rpms.lock.yaml".pathChanged() ||
       "jaeger".pathChanged())
   creationTimestamp: null
   labels:
