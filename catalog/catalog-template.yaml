@@ -56,6 +56,9 @@ entries:
   - name: jaeger-operator.v1.65.0-1
     replaces: jaeger-operator.v1.62.0-2
     skipRange: '>=1.13.0 <1.65.0-1'
+  - name: jaeger-operator.v1.65.0-2
+    replaces: jaeger-operator.v1.65.0-1
+    skipRange: '>=1.13.0 <1.65.0-2'
   name: stable
   package: jaeger-product
   schema: olm.channel
@@ -89,6 +92,8 @@ entries:
   schema: olm.bundle
 - image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:665af6eb855ed08e7838035e6748f3a137ae6801023a93c82fcaff4b736fd317
   schema: olm.bundle
-- image: quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle@sha256:f8ed2eb7191cb6199fbe36a02727865b1c418aa0d90ce01d6b76e3b9c7768f33
+- image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:f8ed2eb7191cb6199fbe36a02727865b1c418aa0d90ce01d6b76e3b9c7768f33
+  schema: olm.bundle
+- image: quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle@sha256:057743d1f77a5b9f15214bf0dc8671616d1ccafaf0860ef8c210579db10bd9a4
   schema: olm.bundle
 schema: olm.template.basic
