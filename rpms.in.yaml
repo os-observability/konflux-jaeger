@@ -8,7 +8,6 @@ contentOrigin:
 packages:
   - openssl
   - patch
-  - glib2-2.56.4-166.el8_10
 arches:
   - x86_64
   - aarch64
