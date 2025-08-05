@@ -39,13 +39,6 @@ arches:
     name: gdbm-libs
     evr: 1:1.18-2.el8
     sourcerpm: gdbm-1.18-2.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/g/glib2-2.56.4-166.el8_10.x86_64.rpm
-    repoid: ubi-8-for-x86_64-baseos-rpms
-    size: 2616140
-    checksum: sha256:4263704506f6bfb3de7bdad1442c52b90aad11ae483bc8b6fd2ba0d0d58f7fe8
-    name: glib2
-    evr: 2.56.4-166.el8_10
-    sourcerpm: glib2-2.56.4-166.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/l/libnsl2-1.2.0-2.20180605git4a062cf.el8.x86_64.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
     size: 59120
@@ -136,12 +129,6 @@ arches:
     checksum: sha256:e91abeb46538fc264936c0eed825c28eab9eef47288c9eb1d2d4d078bccad5d1
     name: gdbm
     evr: 1:1.18-2.el8
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/glib2-2.56.4-166.el8_10.src.rpm
-    repoid: ubi-8-for-x86_64-baseos-source-rpms
-    size: 7164223
-    checksum: sha256:1c3428c7032aa0ba80754efd2b97d1e3b432eb151ed9de4db7a09ad96e5ecd33
-    name: glib2
-    evr: 2.56.4-166.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/l/libnsl2-1.2.0-2.20180605git4a062cf.el8.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
     size: 147827
@@ -179,7 +166,7 @@ arches:
     name: python3
     evr: 3.6.8-70.el8_10
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/c2c4026672fa28df7a0e08768da6e877a12989fb01c716e5042459b1c4a3ce7b-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/531ec976c54dd077fe8d94b8918e3cd4f9b957e1779d8172cc7afded2fdbee37-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 60185
-    checksum: sha256:c2c4026672fa28df7a0e08768da6e877a12989fb01c716e5042459b1c4a3ce7b
+    size: 60209
+    checksum: sha256:531ec976c54dd077fe8d94b8918e3cd4f9b957e1779d8172cc7afded2fdbee37
