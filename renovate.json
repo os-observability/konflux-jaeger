@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "github>konflux-ci/mintmaker//config/renovate/renovate.json"
-  ],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "ignoreDeps": [
     "registry.redhat.io/openshift4/ose-operator-registry",
     "registry.redhat.io/openshift4/ose-operator-registry-rhel9"
