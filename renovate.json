@@ -6,13 +6,18 @@
     "registry.redhat.io/openshift4/ose-operator-registry",
     "registry.redhat.io/openshift4/ose-operator-registry-rhel9"
   ],
-  "packageRules": [
-    {
-      "matchFileNames": ["bundle-patch/bundle.env"],
-      "groupName": "bundle images"
-    }
-  ],
   "git-submodules": {
     "enabled": false
-  }
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update digest of container images in .env files",
+      "managerFilePatterns": ["/\\.env$/"],
+      "matchStrings": [
+        "# renovate: follow_tag=(?<currentValue>[a-z-]+?)\\s.+?=(?<packageName>[^@:]+?)@(?<currentDigest>.+?)\\s"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ]
 }
