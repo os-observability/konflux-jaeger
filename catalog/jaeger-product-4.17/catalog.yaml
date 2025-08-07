@@ -3294,7 +3294,7 @@ relatedImages:
   name: jaeger-operator
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:1bd0d7497b639458c471e464103ad93bd44c4af35a57f34a60ef1a87ae6fe925
+image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:264613b2add0f32e5f537ee7cf9ba8019e5e9a347fdf20bc3de8d1678157ba66
 name: jaeger-operator.v1.65.0-3
 package: jaeger-product
 properties:
@@ -3326,8 +3326,8 @@ properties:
       capabilities: Deep Insights
       categories: Logging & Tracing
       certified: "false"
-      containerImage: registry.redhat.io/rhosdt/jaeger-rhel8-operator@sha256:e0394e630e009367ac203babd41046cb42fa354b8663436b541f331297f0af1f
-      createdAt: 06 Aug 2025, 10:44
+      containerImage: registry.redhat.io/rhosdt/jaeger-rhel8-operator@sha256:1044318fbb7f8f300b2451f42c607ecbe573d5462c729e50d3c1137b4f616dbc
+      createdAt: 07 Aug 2025, 12:31
       description: Provides tracing, monitoring and troubleshooting for microservices-based
         distributed systems
       features.operators.openshift.io/cnf: "false"
@@ -3471,26 +3471,26 @@ properties:
     provider:
       name: Red Hat
 relatedImages:
-- image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:1bd0d7497b639458c471e464103ad93bd44c4af35a57f34a60ef1a87ae6fe925
+- image: registry.redhat.io/rhosdt/jaeger-operator-bundle@sha256:264613b2add0f32e5f537ee7cf9ba8019e5e9a347fdf20bc3de8d1678157ba66
   name: ""
-- image: registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:9b7aabfbead92df3a4afeb1854e45a92f23da52321d1705fce444510fa856145
+- image: registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:56653df97e4498ecd67b9645d75e44f65c625594e312dbcf0f09937b57d76010
   name: ose-rbac-proxy
 - image: registry.redhat.io/openshift4/ose-oauth-proxy@sha256:fb326be806b337b0ae1711f974d15e073aebcbad77aaa1123a63cf4f331da5f2
   name: ose-oauth-proxy
-- image: registry.redhat.io/rhosdt/jaeger-agent-rhel8@sha256:5f6809705b45abf23411e9542788c8381ebb6aaf399a0f08af857a0a5aeb54ae
+- image: registry.redhat.io/rhosdt/jaeger-agent-rhel8@sha256:e8b8516c1abf55f0c9beb8b85a21d481ddeccd003896fd36526482a2aab0365b
   name: jaeger-agent
-- image: registry.redhat.io/rhosdt/jaeger-all-in-one-rhel8@sha256:71e000298867c4a5043e0f2f1fdbd0f48ef593ef6e01879fae58b71a3445ad9a
+- image: registry.redhat.io/rhosdt/jaeger-all-in-one-rhel8@sha256:ad1a4b3062fd9bdd430c15f693493c3406cbad5d2bf756c1e935a9002c01c54d
   name: jaeger-all-in-one
-- image: registry.redhat.io/rhosdt/jaeger-collector-rhel8@sha256:38aa3fc40766d6ef4c6c8b5c95d804288b93eb816f000109310bdc8fd65bdd29
+- image: registry.redhat.io/rhosdt/jaeger-collector-rhel8@sha256:793b769b4aada90bd9e35dd11a609236c652b01489ba8203ea0c3b2f81a140e6
   name: jaeger-collector
-- image: registry.redhat.io/rhosdt/jaeger-es-index-cleaner-rhel8@sha256:8a878cc6e9c950006f9f2f74d13bbcd297020867573ad8edeab6fe36fdf17ed2
+- image: registry.redhat.io/rhosdt/jaeger-es-index-cleaner-rhel8@sha256:63db16b3ad9b286a0e5105272286dcf214f9cccecb02c06c74c49383bc0febb0
   name: jaeger-es-index-cleaner
-- image: registry.redhat.io/rhosdt/jaeger-es-rollover-rhel8@sha256:0063f027ff868d594fb1c5609f6d390dfdedf54f8915fbe1e0ed4e77437a8a62
+- image: registry.redhat.io/rhosdt/jaeger-es-rollover-rhel8@sha256:b527082f02131c52a767379a2337f0ce54c19ab4a61ad2f62afd9d19871db031
   name: jaeger-es-rollover
-- image: registry.redhat.io/rhosdt/jaeger-ingester-rhel8@sha256:b9b15015d2158a9b9f9b849fec091cfcd966eee6be8659005ac2216b4c557c17
+- image: registry.redhat.io/rhosdt/jaeger-ingester-rhel8@sha256:be03945c0e7f9efb11ed34fbdd051c4609e8b1c0cf71992f6fec1b7fc13a2a0c
   name: jaeger-ingester
-- image: registry.redhat.io/rhosdt/jaeger-query-rhel8@sha256:f5f2b2cec6621b960df54b40318da4451999d3f19de5f44e4ca0c5b0f2d8d9e5
+- image: registry.redhat.io/rhosdt/jaeger-query-rhel8@sha256:3bdfd261e83a7eb17a827db227722ac8c3023790ce992972d98d897c22c8470c
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/jaeger-rhel8-operator@sha256:e0394e630e009367ac203babd41046cb42fa354b8663436b541f331297f0af1f
+- image: registry.redhat.io/rhosdt/jaeger-rhel8-operator@sha256:1044318fbb7f8f300b2451f42c607ecbe573d5462c729e50d3c1137b4f616dbc
   name: jaeger-operator
 schema: olm.bundle
