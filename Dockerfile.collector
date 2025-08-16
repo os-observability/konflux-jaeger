@@ -16,7 +16,7 @@ RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variabl
     exportOrFail GIT_COMMIT_SHA=`git rev-parse HEAD` && \
     go build -C ./cmd/collector -mod=mod -o ./jaeger -trimpath -ldflags "-s -w -X ${VERSION_PKG}.commitSHA=${GIT_COMMIT_SHA} -X ${VERSION_PKG}.latestVersion=${GIT_LATEST_TAG} -X ${VERSION_PKG}.date=${VERSION_DATE}"
 
-FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:af9b4a20cf942aa5bce236fedfefde887a7d89eb7c69f727bd0af9f5c80504ab
+FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:395dec18e7ba913157b1ecf2fd696d701ef834fd77054fffdb7eb678f864eb9e
 WORKDIR /
 
 # For installing RPM updates from lock file
