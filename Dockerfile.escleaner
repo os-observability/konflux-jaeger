@@ -12,7 +12,7 @@ WORKDIR /opt/app-root/src/jaeger
 RUN go build -C ./cmd/es-index-cleaner -mod=mod -o ./jaeger -trimpath -ldflags "-s -w"
 
 
-FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:af9b4a20cf942aa5bce236fedfefde887a7d89eb7c69f727bd0af9f5c80504ab
+FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:89f2c9794a3357a8463e3acc4dad45075b1a9a63ae05d4a493dd1451625f2222
 WORKDIR /
 
 # For installing RPM updates from lock file
