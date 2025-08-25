@@ -15,11 +15,11 @@ metadata:
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
     features.operators.openshift.io/csi: "false"
-    olm.skipRange: '>=1.13.0 <1.65.0-3'
-  name: jaeger-operator.v1.65.0-3
+    olm.skipRange: '>=1.13.0 <1.65.0-4'
+  name: jaeger-operator.v1.65.0-4
 spec:
-  version: 1.65.0-3
-  replaces: jaeger-operator.v1.65.0-2
+  version: 1.65.0-4
+  replaces: jaeger-operator.v1.65.0-3
   description: |-
 
     ## Operator deprecation warning
