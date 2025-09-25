@@ -59,4 +59,5 @@ LABEL com.redhat.component="jaeger-query-container" \
       io.k8s.description="Query for the distributed tracing system." \
       io.openshift.expose-services="16686:uihttp" \
       io.openshift.tags="tracing" \
-      io.k8s.display-name="Jaeger Query"
+      io.k8s.display-name="Jaeger Query" \
+      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.6::el8"
