@@ -53,6 +53,7 @@ USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/jaeger"]
 
 LABEL com.redhat.component="jaeger-all-in-one-container" \
+      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.6::el8" \
       name="rhosdt/jaeger-all-in-one-rhel8" \
       summary="Jaeger all-in-one" \
       description="All-in-one for the distributed tracing system" \
