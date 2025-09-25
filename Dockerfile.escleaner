@@ -34,4 +34,5 @@ LABEL com.redhat.component="jaeger-es-index-cleaner-container" \
       io.k8s.description="Index cleaner for the distributed tracing system." \
       io.openshift.expose-services="" \
       io.openshift.tags="tracing" \
-      io.k8s.display-name="Jaeger ES index cleaner"
+      io.k8s.display-name="Jaeger ES index cleaner" \
+      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.6::el8"
