@@ -31,7 +31,8 @@ ARG USER_UID=1001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/jaeger"]
 
-LABEL com.redhat.component="jaeger-collector-container" \
+LABEL cpe="cpe:/a:redhat:openshift_distributed_tracing:3.6::el8" \
+      com.redhat.component="jaeger-collector-container" \
       name="rhosdt/jaeger-collector-rhel8" \
       summary="Jaeger Collector" \
       description="Collector for the distributed tracing system" \
