@@ -106,4 +106,11 @@ entries:
   schema: olm.bundle
 - image: quay.io/redhat-user-workloads/rhosdt-tenant/jaeger/jaeger-bundle@sha256:f250e39033d7cb1d786e5a7ec6798c25d4c5d8c6ecbcf6828915605fc4658da5
   schema: olm.bundle
+- package: jaeger-product
+  schema: olm.deprecations
+  entries:
+    - reference:
+        schema: olm.package
+      message: |
+        package Jaeger is end of life.
 schema: olm.template.basic

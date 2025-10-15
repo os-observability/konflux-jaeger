@@ -3698,3 +3698,11 @@ relatedImages:
 - image: registry.redhat.io/rhosdt/jaeger-rhel8-operator@sha256:51a8685e4dc70888c991996f149cd42233049d18f702ec72b066d6dad77a07c9
   name: jaeger-operator
 schema: olm.bundle
+---
+entries:
+- message: |
+    package Jaeger is end of life.
+  reference:
+    schema: olm.package
+package: jaeger-product
+schema: olm.deprecations
