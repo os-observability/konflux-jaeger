@@ -3701,7 +3701,7 @@ schema: olm.bundle
 ---
 entries:
 - message: |
-    package Jaeger is end of life.
+    Jaeger is no longer support and is end of life.
   reference:
     schema: olm.package
 package: jaeger-product
