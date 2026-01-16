@@ -34,6 +34,7 @@ ENTRYPOINT ["/usr/bin/jaeger"]
 
 LABEL com.redhat.component="jaeger-ingester-container" \
       name="rhosdt/jaeger-ingester-rhel8" \
+      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.6::el8" \
       summary="Jaeger Ingester" \
       description="Ingester for the distributed tracing system" \
       io.k8s.description="Ingester for the distributed tracing system." \
